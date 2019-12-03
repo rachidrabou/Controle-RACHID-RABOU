@@ -1,0 +1,56 @@
+<div >
+
+  <h4 class="text-muted mb-4">Tables </h4>
+
+  <div class="row mb-4">
+
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5>La liste des produits</h5>
+          <button (click)="showHide()" class="btn btn-lightning rounded-0 mb-2 mr-2">Ajouter un produit</button>
+
+
+        </div>
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th scope="col">Référence</th>
+                <th scope="col">Désignation</th>
+                <th scope="col">Code Fournisseur</th>
+                <th scope="col">Prix Unitaire</th>
+                <th scope="col">Quantité</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let produit of produits">
+
+                <td>{{produit.reference}}</td>
+                <td>{{produit.designation}}</td>
+                <td>{{produit.codeFournisseur}}</td>
+                <td>{{produit.prixUnitaire}}</td>
+                <td>{{produit.quantite}}</td>
+                <td><button (click)="produitService.supprimer()">Supprimer</button></td>
+                <td><button (click)="shoHideUpdate()">Modifier</button></td>
+
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="affiche">
+  <app-add-produit></app-add-produit>
+</div>
+<div *ngIf="afficheUpdate">
+  <app-update-produit></app-update-produit>
+</div>
